@@ -1,60 +1,49 @@
 #include <stdio.h>
 #include <math.h>
 
-// Project Euler Problem Numer
+// Project Euler Problem Number 4
 /*
 	The prime factors of 13195 are 5, 7, 13 and 29.
 	What is the largest prime factor of the number 600851475143 ?
 */
 
-double modulus(double val,double div) {
-	double sum=0,remainder;
-	while(1){
-		sum = sum + div;
-		if((val - sum) < div){
-			remainder = val - sum;
-			break;
-		}
-		else if((val - sum) == 0){
-			remainder = 0;
-			break;
-		}
-	}
-	return remainder;
-}
 
-double is_prime(double val) {
-	double fact;
-	for(double i = 2; i < (val/2); i++) {
-		fact = val/i;
-		double factor = fmod(val,fact);
-		if(factor == 0){
-			return 0;
+unsigned long long int is_prime(unsigned long long int val) {
+	unsigned long long int fact;
+	int out = 1;
+	for(unsigned long long int i = 2; i < val; i++) {
+		fact = val%i;
+		//unsigned long long int factor = fmod(val,fact);
+		if(fact == 0){
+			printf("Not Prime");
+			out = 0;
+			break;	
 		}
-		printf("%f\n",i);
+		//printf("%lld\n",i);
 	}
-	return 1;
+	return out;
 }
 
 
-double Largest_Prime(double val) {
-	double lpf,fact;
-	for(double i=2; i < (val/2); i++) {
-		fact = val/i;
-		double factor = fmod(val,fact);
-		if((factor == 0) && is_prime(fact)){
-			lpf = fact;
+unsigned long long int Largest_Prime(unsigned long long int val) {
+	unsigned long long int lpf,fact;
+	for(unsigned long long int i=val; i >0; i--) {
+		//fact = val/i;
+		// factor = fmod(val,fact);
+		fact = val%i;
+		if((fact == 0) && is_prime(i)){
+			lpf = i;
 			break;
 		}
-		printf("%f\n",fact);
+		//printf("%lld\n",fact);
 	}
 	return lpf;
 }
 
 
-double main(){
-	double pass = 600851475143;
-	double ans = Largest_Prime(pass);
-	printf("The anser is: %f\n",ans);
+unsigned long long int main(){
+	unsigned long long int pass = 600851475143;
+	unsigned long long int ans = Largest_Prime(pass);
+	printf("The anser is: %lld\n",ans);
 	return 0;
 }
