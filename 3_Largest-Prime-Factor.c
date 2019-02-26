@@ -24,6 +24,20 @@ unsigned long long int is_prime(unsigned long long int val) {
 	return out;
 }
 
+int Is_Prime(unsigned int number) {
+    if (number <= 3 && number > 1)
+        return 1;            // as 2 and 3 are prime
+    else if (number%2==0 || number%3==0)
+        return 0;     // check if number is divisible by 2 or 3
+    else {
+        unsigned int i;
+        for (i=5; i*i<=number; i+=6) {
+            if (number % i == 0 || number%(i + 2) == 0)
+                return 0;
+        }
+        return 1;
+    }
+}
 
 unsigned long long int Largest_Prime(unsigned long long int val) {
 	unsigned long long int lpf,fact;
@@ -31,7 +45,8 @@ unsigned long long int Largest_Prime(unsigned long long int val) {
 		//fact = val/i;
 		// factor = fmod(val,fact);
 		fact = val%i;
-		if((fact == 0) && is_prime(i)){
+		printf("%lld\n",i);
+		if((fact == 0) && Is_Prime(i)){
 			lpf = i;
 			break;
 		}
@@ -42,7 +57,7 @@ unsigned long long int Largest_Prime(unsigned long long int val) {
 
 
 unsigned long long int main(){
-	unsigned long long int pass = 600851475143;
+	unsigned long long int pass = ceil(600851475143/2);
 	unsigned long long int ans = Largest_Prime(pass);
 	printf("The anser is: %lld\n",ans);
 	return 0;
