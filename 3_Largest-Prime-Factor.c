@@ -41,7 +41,7 @@ int Is_Prime(unsigned int number) {
 
 unsigned long long int Largest_Prime(unsigned long long int val) {
 	unsigned long long int lpf,fact;
-	for(unsigned long long int i=val; i >0; i--) {
+	for(unsigned long long int i=ceil(val/2); i >0; i--) {
 		//fact = val/i;
 		// factor = fmod(val,fact);
 		fact = val%i;
@@ -57,7 +57,7 @@ unsigned long long int Largest_Prime(unsigned long long int val) {
 
 
 unsigned long long int main(){
-	unsigned long long int pass = ceil(600851475143/2);
+	unsigned long long int pass = 600851475143;
 	unsigned long long int ans = Largest_Prime(pass);
 	printf("The anser is: %lld\n",ans);
 	return 0;
