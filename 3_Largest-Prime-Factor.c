@@ -8,7 +8,7 @@
 */
 
 
-unsigned long long int is_prime(unsigned long long int val) {
+int is_prime(unsigned long long int val) {
 	unsigned long long int fact;
 	int out = 1;
 	for(unsigned long long int i = 2; i < val; i++) {
@@ -24,13 +24,13 @@ unsigned long long int is_prime(unsigned long long int val) {
 	return out;
 }
 
-int Is_Prime(unsigned int number) {
+int Is_Prime(unsigned long long int number) {
     if (number <= 3 && number > 1)
         return 1;            // as 2 and 3 are prime
     else if (number%2==0 || number%3==0)
         return 0;     // check if number is divisible by 2 or 3
     else {
-        unsigned int i;
+        unsigned long long int i;
         for (i=5; i*i<=number; i+=6) {
             if (number % i == 0 || number%(i + 2) == 0)
                 return 0;
