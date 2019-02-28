@@ -24,15 +24,16 @@ int Is_Prime(unsigned long long int number) {
 
 unsigned long long int Largest_Prime(unsigned long long int val) {
 	unsigned long long int lpf,fact;
-	for(unsigned long long int i=ceil(val/2); i>0; i--)
+	for(unsigned long long int i=3; i<val; i+=2)
 	{
-		if (Is_Prime(i))
+		fact = val%i;
+		if (fact == 0)
 		{
 			printf("%lld\n",i);
-			fact = val%i;
-			if (fact == 0)
+			unsigned long long int num = val/i;
+			if (Is_Prime(num))
 			{
-				lpf = i;
+				lpf = num;
 				break;
 			}
 		}
