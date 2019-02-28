@@ -10,27 +10,60 @@
   Find the largest palindrome made from the product of two 3-digit numbers.
 */
 
-int palindrome(int num) {
-  int num1,num2,prod;
-  char str[20];
-  for (int i=num;i>0;i--)
+int is_even(long int val)
+{
+  if (val%2 == 0)
   {
-    for (int j=num;j>0;j--)
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+long int palindrome(long int num) {
+  long int num1,num2,prod;
+  char str[20];
+  for (long int i=num;i>0;i--)
+  {
+    for (long int j=num;j>0;j--)
     {
       prod = i*j;
-      printf("%d",prod);
-      sprintf(str,"%d",prod);
-      int len = strlen(str);
-      if (str[0]==str[len]))
+      //printf("%ld",prod);
+      sprintf(str,"%ld",prod);
+      long int len = strlen(str);
+      //printf("%ld\n",len);
+      //printf("%c %c\n",str[0],str[len-1]);
+      if (is_even(len))
       {
-        return prod;
+        for (int i=0;i<len/2;i++)
+        {
+          if (str[i] != str[len-1-i])
+          {
+            break;
+          }
+          return prod;
+        }
+      }
+      else
+      {
+        for (int i=0;i<((len-1)/2);i++)
+        {
+          if (str[i] != str[len-1-i])
+          {
+            break;
+          }
+          return prod;
+        }
       }
     }
   }
 }
 
-int main(){
-  int out = palindrome(999);
-  printf("The answer is %d\n",out);
+long int main(){
+  long int val = 999;
+  long int out = palindrome(val);
+  printf("The answer is %ld\n",out);
 	return 0;
 }
