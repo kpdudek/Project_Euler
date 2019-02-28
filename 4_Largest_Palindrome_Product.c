@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
 // Project Euler Problem Numer
 /*
@@ -8,17 +10,27 @@
   Find the largest palindrome made from the product of two 3-digit numbers.
 */
 
-int palindrome() {
+int palindrome(int num) {
   int num1,num2,prod;
-  for(int i;i > 0;i--){
-    for(int j;j > 0;j--){
-      prod = (num1-i)*(num2-j);
+  char str[20];
+  for (int i=num;i>0;i--)
+  {
+    for (int j=num;j>0;j--)
+    {
+      prod = i*j;
+      printf("%d",prod);
+      sprintf(str,"%d",prod);
+      int len = strlen(str);
+      if (str[0]==str[len]))
+      {
+        return prod;
+      }
     }
   }
 }
 
 int main(){
-
-
+  int out = palindrome(999);
+  printf("The answer is %d\n",out);
 	return 0;
 }
