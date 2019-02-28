@@ -7,23 +7,6 @@
 	What is the largest prime factor of the number 600851475143 ?
 */
 
-
-int is_prime(unsigned long long int val) {
-	unsigned long long int fact;
-	int out = 1;
-	for(unsigned long long int i = 2; i < val; i++) {
-		fact = val%i;
-		//unsigned long long int factor = fmod(val,fact);
-		if(fact == 0){
-			printf("Not Prime");
-			out = 0;
-			break;	
-		}
-		//printf("%lld\n",i);
-	}
-	return out;
-}
-
 int Is_Prime(unsigned long long int number) {
     if (number <= 3 && number > 1)
         return 1;            // as 2 and 3 are prime
@@ -41,16 +24,18 @@ int Is_Prime(unsigned long long int number) {
 
 unsigned long long int Largest_Prime(unsigned long long int val) {
 	unsigned long long int lpf,fact;
-	for(unsigned long long int i=ceil(val/2); i >0; i--) {
-		//fact = val/i;
-		// factor = fmod(val,fact);
-		fact = val%i;
-		printf("%lld\n",i);
-		if((fact == 0) && Is_Prime(i)){
-			lpf = i;
-			break;
+	for(unsigned long long int i=ceil(val/2); i>0; i--)
+	{
+		if (Is_Prime(i))
+		{
+			printf("%lld\n",i);
+			fact = val%i;
+			if (fact == 0)
+			{
+				lpf = i;
+				break;
+			}
 		}
-		//printf("%lld\n",fact);
 	}
 	return lpf;
 }
