@@ -39,6 +39,7 @@ long int palindrome(long int num) {
           if (str[i] != str[len-1-i])
           {
             pal = 0;
+            break;
           }
         }
         if (pal){return prod;}
@@ -51,6 +52,7 @@ long int palindrome(long int num) {
           if (str[i] != str[len-1-i])
           {
             pal = 0;
+            break;
           }
         }
         if(pal){return prod;}
