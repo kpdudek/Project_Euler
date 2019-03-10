@@ -65,6 +65,6 @@ long int palindrome(long int num) {
 long int main(){
   long int val = 999;
   long int out = palindrome(val);
-  printf("The answer is %ld\n",out);
+  printf("The answer is: %ld\n",out);
 	return 0;
 }

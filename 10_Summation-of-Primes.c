@@ -6,9 +6,11 @@
 
 #define PI 3.14159
 
-// Project Euler Problem Number 
+// Project Euler Problem Number 10
 /*
+	The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
+	Find the sum of all the primes below two million.
 */
 
 int main(){
