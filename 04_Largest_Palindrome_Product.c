@@ -18,7 +18,7 @@ int is_even(unsigned long int val)
 
 
 long int palindrome(unsigned long int num) {
-  unsigned long int num1,num2,prod;
+  unsigned long int num1,num2,prod,result=0;
   char str[20];
 
   for (unsigned long int i=num;i>0;i--)
@@ -34,31 +34,32 @@ long int palindrome(unsigned long int num) {
       if (is_even(len))
       {
         int pal = 1;
-        for (int i=0;i<(len/2)-1;i++)
+        for (int k=0;k<(len/2);k++)
         {
-          if (str[i] != str[len-1-i])
+          if (str[k] != str[len-1-k])
           {
             pal = 0;
             break;
           }
         }
-        if (pal){return prod;}
+        if (pal && prod > result){result = prod;}
       }
       else
       {
         int pal = 1;
-        for (int i=0;i<(((len-1)/2)-1);i++)
+        for (int k=0;k<(((len-1)/2));k++)
         {
-          if (str[i] != str[len-1-i])
+          if (str[k] != str[len-1-k])
           {
             pal = 0;
             break;
           }
         }
-        if(pal){return prod;}
+        if(pal && prod > result){result = prod;}
       }
     }
   }
+  return result;
 }
 
 

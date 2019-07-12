@@ -15,6 +15,22 @@
 
 int main(){
 
+	int divisible = 0;
+	
+	while(!divisible)
+	{
+		divisible = 1;
+
+		for (int i = 1, i < 21, i++)
+		{
+			if (num%i != 0)
+			{
+				divisible = 0;
+				break;
+			}
+		}
+		if (!divisible)
+	}
 
 	return 0;
 }
