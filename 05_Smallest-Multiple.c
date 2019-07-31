@@ -16,22 +16,24 @@
 int main(){
 
 	int divisible = 0;
+	unsigned long int num = 1;
 	
 	while(!divisible)
 	{
+		num++;
 		divisible = 1;
-
-		for (int i = 1, i < 21, i++)
+		for (int i = 1; i < 21; i++)
 		{
-			if (num%i != 0)
+			if (num%i > 0)
 			{
 				divisible = 0;
+				//if (i > 15) {printf("%ld\n",num);}
 				break;
 			}
 		}
-		if (!divisible)
 	}
 
+	printf("The answer is %ld\n",num);
 	return 0;
 }
 
