@@ -37,6 +37,8 @@
 
 int main(){
 
+    // Todo: count 13 elements at a time
+
 
 	return 0;
 }
