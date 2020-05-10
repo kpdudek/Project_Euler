@@ -20,7 +20,7 @@
 
 int main(){
 
-
+	for(int i = 1; i <= 998; i++)
 	return 0;
 }
 
